@@ -9,18 +9,32 @@
     <title>Carosello Multi Array</title>
 </head>
 <body>
-    <div class="container position-relative">
+    <div id="app" class="container position-relative">
         <div class="main position-absolute top-50 start-50 translate-middle d-flex">
-            <div class="center position-relative text-end">
-                <div class="items_container"></div>
+            <div class="text-end">
+                <div v-for="(elemento, indice) in schedeImmagini.immaginiArr" class="items_container position-relative center" :class="immagineCorrente(indice)">
+                    <img :src="elemento" alt="">
+                    <div class="descrizione">
+                        <h1>
+                            {{schedeImmagini.title[indice]}}
+                        </h1>
+                        <p>
+                            {{schedeImmagini.text[indice]}}
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="lateral d-flex flex-column position-relative">
-                <div class="prev position-absolute top-0 text-center">&uarr;</div>
-                <div class="next position-absolute bottom-0 text-center">&darr;</div>
+            <div class="d-flex flex-column position-relative">
+                <div v-for="(elemento, indice) in schedeImmagini.immaginiArr" class="lateral">
+                    <img :src="elemento" alt="">
+                </div>
+                <div @click="indietro" class="prev position-absolute top-0 text-center">&uarr;</div>
+                <div @click="avanti" class="next position-absolute bottom-0 text-center">&darr;</div>
             </div>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="myscript.js"></script>
 </body>
 </html>

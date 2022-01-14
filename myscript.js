@@ -1,4 +1,58 @@
-const items = [
+let app = new Vue({
+    el: "#app",
+    data: {
+        corrente: 0,
+        
+
+
+        schedeImmagini : {
+            immaginiArr : [
+            'img/01.jpg',
+            'img/02.jpg',
+            'img/03.jpg',
+            'img/04.jpg',
+            'img/05.jpg'
+            ],
+            title : [
+                'Svezia',
+                'Svizzera',
+                'Gran Bretagna',
+                'Germania',
+                'Paradise'
+            ],
+            text : [
+                'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum corporis.',
+                'Lorem ipsum',
+                'Lorem ipsum, dolor sit amet consectetur adipisicing elit.',
+                'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
+                'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
+            ],
+        }
+    },
+
+    methods: {
+        immagineCorrente: function(indiceimmagine){
+            if(indiceimmagine == this.corrente){
+                return "active";
+            }
+            return "none";
+        },
+        avanti: function(){
+            this.corrente ++;
+            if(this.corrente == this.schedeImmagini.immaginiArr.length){
+                this.corrente = 0; 
+            }
+        },
+        indietro: function(){
+            this.corrente --;
+            if(this.corrente < 0){
+                this.corrente = this.schedeImmagini.immaginiArr.length - 1;
+            }
+        }
+    }
+})
+
+/* const items = [
     'img/01.jpg',
     'img/02.jpg',
     'img/03.jpg',
@@ -88,4 +142,4 @@ next.addEventListener('click', function() {
     itemsSideActive.classList.remove('opacity');
     itemsSideActive = document.getElementById('lateral_item-'+elementActive);
     itemsSideActive.classList.add('opacity');
-});
+}); */
