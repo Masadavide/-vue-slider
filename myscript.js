@@ -3,7 +3,6 @@ let app = new Vue({
     data: {
         corrente: 0,
 
-
         schedeImmagini : {
             immaginiArr : [
             'img/01.jpg',
@@ -50,9 +49,21 @@ let app = new Vue({
         },
         thumb: function(attivaIndex){
             this.corrente= attivaIndex
-            
-            
         },
+        timer: function(){
+            let start = this;
+            this.tempo = setInterval (function(){
+            start.avanti();
+        },1000);
+        },
+        timerStop: function(){
+            console.log("ciao");
+            clearInterval(this.tempo);
+        }
+    },
+    created:
+    function() {
+        this.timer();
     }
     
 })
