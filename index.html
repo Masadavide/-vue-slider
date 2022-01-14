@@ -26,7 +26,7 @@
             </div>
             <div class="d-flex flex-column position-relative">
                 <div v-for="(elemento, indice) in schedeImmagini.immaginiArr" class="lateral">
-                    <img :src="elemento" alt="">
+                    <img @click="thumb(indice)" :src="elemento" alt="">
                 </div>
                 <div @click="indietro" class="prev position-absolute top-0 text-center">&uarr;</div>
                 <div @click="avanti" class="next position-absolute bottom-0 text-center">&darr;</div>

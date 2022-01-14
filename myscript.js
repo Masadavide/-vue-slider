@@ -2,7 +2,6 @@ let app = new Vue({
     el: "#app",
     data: {
         corrente: 0,
-        
 
 
         schedeImmagini : {
@@ -48,9 +47,17 @@ let app = new Vue({
             if(this.corrente < 0){
                 this.corrente = this.schedeImmagini.immaginiArr.length - 1;
             }
-        }
+        },
+        thumb: function(attivaIndex){
+            this.corrente= attivaIndex
+            
+            
+        },
     }
+    
 })
+
+
 
 /* const items = [
     'img/01.jpg',
